@@ -1,4 +1,8 @@
-﻿class VCloudDriver:
+﻿import requests
+import urllib2
+import xml.etree
+
+class VCloudDriver:
 	"""
 	An API driver for accessing the various services of VCloud Air On Demand
 	 
@@ -11,6 +15,8 @@
 
 	def login(self):
 		pass
+
+		
 
 
 
