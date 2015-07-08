@@ -1,0 +1,6 @@
+<Session xmlns="http://www.vmware.com/vcloud/v1.5"   user="HelloUser@MyCo.com"   org="0laS71d83-f355-4fbb-b22d-9ece38b5c8ff"> 
+	  <Link      rel="down"      type="application/vnd.vmware.vcloud.orgList+xml"      href="https://us-virginia-1-4.vchs.vmware.com/api/compute/api/org/"/>
+	  <Link      rel="down"      type="application/vnd.vmware.vcloud.query.queryList+xml"      href="https://us-virginia-1-4.vchs.vmware.com/api/compute/api/query" />
+	  <Link      rel="entityResolver"  type="application/vnd.vmware.vcloud.entity+xml"      href="https://us-virginia-1-4.vchs.vmware.com/api/compute/api/entity/" /> 
+	  </Session>
+
