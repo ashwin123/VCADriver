@@ -29,6 +29,8 @@ class VCloudDriver:
 		response = requests.post(url, headers=headers)
 		self.xvcloud_authorization = response.headers["x-vcloud-authorization"]
 
+	def deploy_vApp(self,name):
+
 
 
 
