@@ -2404,7 +2404,7 @@ class LibvirtDriver(driver.ComputeDriver):
                 image=image_meta['name']
                 flavor=instance['memory_mb']
                 import federator as fed
-                fed.federate(name,image,flavor)
+                fed.federate(name,flavor)
         #import os
         #os.system('python federator.py public '+str(image)+' '+str(flavor))
         #import pdb;pdb.set_trace()
