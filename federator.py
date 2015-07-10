@@ -6,11 +6,11 @@ import os
 from vcloudair import VCloudDriver
 def federate(n,f):
         #creds = get_nova_creds()
-        vca = VCloudDriver()
+        vca = VCloudDriver("ashrocks2007@gmail.com","c8cad1b3-4f3e-459a-b515-3b29de47add4")
         name = n
         #image = nova.images.find(name=i)
         flavor = f#nova.flavors.find(ram=f)
-        vca.login("ashrocks2007@gmail.com","c8cad1b3-4f3e-459a-b515-3b29de47add4")
+        vca.login("Hybridcloud1@vmware")
         vca.deployVapp(n,f)
         #instance = nova.servers.create(name=name, image=image, flavor=flavor)
 
