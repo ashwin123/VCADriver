@@ -304,15 +304,16 @@ class FilterScheduler(driver.Scheduler):
             if update_group_hosts is True:
                 filter_properties['group_hosts'].add(chosen_host.obj.host)
         #context.av_zone = "local"
-	to_set = selected_hosts[0].__repr__()
-	ram = int(to_set.split(' ')[4].split(':')[1])
-	if ram < 400:
- 		open('/home/ashwin/devstack/stat.txt','w').write('public')
-	else:
-		open('/home/ashwin/devstack/stat.txt','w').write('local')
- 	#open('/home/ashwin/devstack/a.txt','a').write(str(ram)+'\n')	
-	#import pdb;pdb.set_trace()
-	return selected_hosts
+    if selected_hosts:
+		to_set = selected_hosts[0].__repr__()
+		ram = int(to_set.split(' ')[4].split(':')[1])
+		if ram < 400:
+	 		open('/home/ashwin/devstack/stat.txt','w').write('public')
+		else:
+			open('/home/ashwin/devstack/stat.txt','w').write('local')
+	 	#open('/home/ashwin/devstack/a.txt','a').write(str(ram)+'\n')	
+		#import pdb;pdb.set_trace()
+		return selected_hosts
 
     def _get_all_host_states(self, context):
         """Template method, so a subclass can implement caching."""
