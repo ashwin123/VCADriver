@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<InstantiateVAppTemplateParams xmlns="http://www.vmware.com/vcloud/v1.5" name="ubuntu2 server" deploy="true" powerOn="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1">
+	<Description>Example FTP Server</Description>   
+	<Source href="https://us-virginia-1-4.vchs.vmware.com/api/compute/api/vAppTemplate/vappTemplate-1cf2d503-5ed1-45e5-92ee-688c441308c1" /> 
+</InstantiateVAppTemplateParams>
