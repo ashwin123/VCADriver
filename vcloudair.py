@@ -79,13 +79,22 @@ class VCloudDriver:
 	def deployVapp(self,name,description):
 		url = "https://us-virginia-1-4.vchs.vmware.com/api/compute/api/vdc/a6d53866-3657-4f11-8378-ec83ffd663d7/action/instantiateVAppTemplate"
 		#url = xml_helper.getHref(self.getVDC(),"instantiateVAppTemplateParams")
-		template = ET.parse("ubuntuvapp.xml").getroot()
-		template.set("name",name)
-		template[0].text = description
-		headers = {"Accept":"application/*+xml;version=5.11","x-vcloud-authorization":self.xvcloud_authorization+"","Content-Type":"application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml"}
-		xml_string = "<?xml version='1.0' encoding='UTF-8'?>" + ET.tostring(template,"utf-8","xml")
-		a = re.sub(r"ns0:",r"",xml_string)
-		payload = re.sub(r":ns0",r"",a)
+		# template = ET.parse("ubuntuvapp.xml").getroot()
+		# template.set("name",name)
+		# template[0].text = description
+		# headers = {"Accept":"application/*+xml;version=5.11","x-vcloud-authorization":self.xvcloud_authorization+"","Content-Type":"application/vnd.vmware.vcloud.instantiateVAppTemplateParams+xml"}
+		# xml_string = "<?xml version='1.0' encoding='UTF-8'?>" + ET.tostring(template,"utf-8","xml")
+		# a = re.sub(r"ns0:",r"",xml_string)
+		# payload = re.sub(r":ns0",r"",a)
+		a = """
+		<?xml version="1.0" encoding="UTF-8"?> 
+<InstantiateVAppTemplateParams xmlns="http://www.vmware.com/vcloud/v1.5" name="Generic" deploy="true" powerOn="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1">
+	<Description>Example</Description>   
+	<Source href="https://us-virginia-1-4.vchs.vmware.com/api/compute/api/vAppTemplate/vappTemplate-1cf2d503-5ed1-45e5-92ee-688c441308c1" /> 
+</InstantiateVAppTemplateParams>
+	"""
+		b = re.sub(r"Generic",name,a)
+		payload = re.sub(r"Example",description,b)
 		response = requests.post(url, headers=headers, data=payload)
 		if response.status_code == requests.codes.ok:
 			print "VM created successfully"
